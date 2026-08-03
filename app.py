@@ -1,10 +1,16 @@
 from flask import Flask, render_template, redirect, url_for
 from database.analytics import average_salary, top_companies, missing_salary_count, total_count, get_all_vacancies
+from database.db import init_db
 import subprocess
 import sys
 import os
 
 app = Flask(__name__)
+init_db()
+
+@app.route("/")
+def dashboard():
+    ...
 
 @app.route("/")
 def dashboard():
