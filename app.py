@@ -29,9 +29,8 @@ def dashboard():
 @app.route("/refresh", methods=["POST"])
 def refresh():
     script_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scraper", "fetch_jobs.py")
-    subprocess.run([sys.executable, script_path])
+    subprocess.run([sys.executable, script_path], env=os.environ.copy())
     return redirect(url_for("dashboard"))
-
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=False, host="0.0.0.0", port=port)
