@@ -27,6 +27,7 @@ for term in search_terms:
     }
 
     response = requests.get(url, params=params)
+    print(f"Status: {response.status_code}, Response: {response.text[:200]}")
     data = response.json()
 
     print(f"\n=== Searching: {term} ({data.get('count', 0)} total found) ===")
