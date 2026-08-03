@@ -10,10 +10,6 @@ init_db()
 
 @app.route("/")
 def dashboard():
-    ...
-
-@app.route("/")
-def dashboard():
     total = total_count()
     avg_min, avg_max = average_salary()
     missing = missing_salary_count()
